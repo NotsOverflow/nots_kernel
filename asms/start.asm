@@ -2,10 +2,10 @@
 ; or we can use this to setup the stack or other nice stuff, like
 ; perhaps setting up the GDT and segments. Please note that interrupts
 ; are disabled at this point: More on interrupts later!
-[BITS 64]
+[BITS 32]
 global start
 start:
-    mov rsp, _sys_stack     ; This points the stack to our new stack area
+    mov esp, _sys_stack     ; This points the stack to our new stack area
     jmp stublet
 
 ; This part MUST be 4byte aligned, so we solve that issue using 'ALIGN 4'
@@ -37,6 +37,8 @@ mboot:
 ; will insert an 'extern _main', followed by 'call _main', right
 ; before the 'jmp $'.
 stublet:
+	extern nf_main
+    call nf_main
     jmp $
 
 

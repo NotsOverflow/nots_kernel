@@ -92,12 +92,14 @@ void nf_outportb (unsigned short _port, unsigned char _data)
 
 /* This is a very simple main() function. All it does is sit in an
 *  infinite loop. This will be like our 'idle' loop */
-void nf_main()
+int nf_main()
 {
     nf_init_video();
-    nf_puts((unsigned char *)"Hello World!");
+    nf_puts((unsigned char *)"Hello World!\nFirst Kernel here!");
 
     /* ...and leave this loop in. There is an endless loop in
     *  'start.asm' also, if you accidentally delete this next line */
     for (;;);
+    
+    return (0);
 }

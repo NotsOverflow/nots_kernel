@@ -5,4 +5,4 @@ default 0
 timeout = 0
 title = mykernel
 kernel=/boot/grub/kernel.bin
-#module=/boot/grub/additional_modules
+#  module=/boot/grub/additional_modules
