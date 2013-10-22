@@ -1,10 +1,22 @@
+/* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+
+* File Name : main.c
+
+* Purpose :  from the kernel
+
+* Creation Date : 20-10-2013
+
+* Created By :  Notsgnik
+
+_._._._._._._._._._._._._._._._._._._._._.*/
+
 #include "system.h"
 
 /* These define our textpointer, our background and foreground
 *  colors (attributes), and x and y cursor coordinates */
 unsigned short *textmemptr;
 int attrib = 0x0F;
-int csr_x = 0, csr_y = 0;
+
 
 /* Scrolls the screen */
 void nf_scroll(void)
@@ -153,6 +165,8 @@ void nf_settextcolor(unsigned char forecolor, unsigned char backcolor)
 /* Sets our text-mode VGA pointer, then clears the screen for us */
 void nf_init_video(void)
 {
+	csr_x = 0;
+	csr_y = 0;
     textmemptr = (unsigned short *)0xB8000;
     nf_cls();
 }

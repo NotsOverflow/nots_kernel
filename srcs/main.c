@@ -94,8 +94,15 @@ void nf_outportb (unsigned short _port, unsigned char _data)
 *  infinite loop. This will be like our 'idle' loop */
 int nf_main()
 {
+	nf_gdt_install();
+	nf_idt_install();
+	nf_isrs_install();
+	nf_irq_install();
+	__asm__ __volatile__ ("sti");
+	nf_timer_install();
+	nf_keyboard_install();
     nf_init_video();
-    nf_puts((unsigned char *)"Hello World!\nFirst Kernel here!");
+    nf_puts((unsigned char *)"Hello World!\nFirst Kernel here! :\n");
 
     /* ...and leave this loop in. There is an endless loop in
     *  'start.asm' also, if you accidentally delete this next line */
