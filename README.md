@@ -1,8 +1,6 @@
----\
-+
-+	Nots_kernel (nk)
-+	
--------------------------------------------------------------------------------\	
+
+	Nots_kernel (nk)
+	
 Simple kernel built from http://www.osdever.net/bkerndev/Docs/title.htm tutorial
 
 this is the first draft:
@@ -28,3 +26,8 @@ todo:
 goal:
 
 	build first draft of an OS, explore and learn by building
+	
+	
+optional:
+
+	make x86_64 ajustments
